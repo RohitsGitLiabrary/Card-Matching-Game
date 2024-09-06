@@ -1,0 +1,46 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+.heading {
+  font-family: comic sans ms, cursive;
+  font-size: 30px;
+  width: 100%;
+  color: crimson;
+  text-align: center;
+  margin: 0px 0px 0px 0px;
+}
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: cornsilk;
+  height: 100%;
+}
+
+table {
+  margin-top: 0;
+  border-collapse: separate;
+  text-indent: initial;
+  border-spacing: 15px;
+}
+.cellContent {
+  width: 200px;
+  height: 100px;
+  text-align: center;
+  font-size: 24px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  transition: background-color 0.6s, color 0.6s;
+  border-radius: 10px;
+}
+
+td.flipped {
+  background-color: #32de84; /* Change background color on flip */
+  color: black;
+}
