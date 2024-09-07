@@ -38,6 +38,7 @@ cards = [
   card17,
   card18,
 ];
+let cardsOpened = 0;
 
 function createCard() {
   for (let i = numbers.length - 1; i > 0; i--) {
@@ -58,18 +59,16 @@ createCard();
 function flippedCard() {
   let sameCardNumber = [];
   let sameCards = [];
-  let cardsOpened = 0;
   let counter = 0;
   cards.forEach((card) => {
     card.addEventListener("click", () => {
       counter += 1;
-      cardsOpened += 1;
       card.classList.add("flipped");
       card.textContent = card.dataset.number;
       sameCardNumber.push(card.dataset.number);
       sameCards.push(card);
       if (counter == 2) {
-        check_Same_Card(counter, sameCardNumber, sameCards, cardsOpened);
+        check_Same_Card(counter, sameCardNumber, sameCards);
         counter = 0;
         sameCardNumber = [];
         sameCards = [];
@@ -79,20 +78,18 @@ function flippedCard() {
 }
 function do_nothing() {}
 
-function check_Same_Card(counter, sameCardNumber, sameCards, cardsOpened) {
+function check_Same_Card(counter, sameCardNumber, sameCards) {
   if (counter == 2) {
     if (sameCardNumber[0] == sameCardNumber[1]) {
-      do_nothing();
+      cardsOpened += 2;
     } else if (sameCardNumber[0] !== sameCardNumber[1]) {
-      cardsOpened -= 2;
       setTimeout(() => {
         reset_Cards(sameCards);
       }, 500);
     }
   }
-  if (cardsOpened == cards.length) {
-    alert("You Win this Game");
-  }
+
+  check_Win(cardsOpened);
 }
 
 function reset_Cards(sameCards) {
@@ -100,4 +97,10 @@ function reset_Cards(sameCards) {
     card.textContent = "?";
     card.classList.remove("flipped");
   });
+}
+
+function check_Win(cardsOpened) {
+  if (cardsOpened == cards.length) {
+    alert("You win this game");
+  }
 }

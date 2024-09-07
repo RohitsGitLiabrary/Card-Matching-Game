@@ -4,6 +4,7 @@ html {
   padding: 0;
   height: 100%;
   width: 100%;
+  background-color: cornsilk;
 }
 .heading {
   font-family: comic sans ms, cursive;
@@ -18,7 +19,6 @@ html {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: cornsilk;
   height: 100%;
 }
 
